@@ -9,11 +9,18 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <p>Clients Page</p>
+                    <p>Clients With Callback</p>
                     <form action="/oauth/clients" method="POST">
                         @csrf
                         <input type="text" name="name" placeholder="Name" class="my-4"/>
                         <input type="text" name="redirect" placeholder="Redirect URL" class="my-4"/>
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Create</button>
+                    </form>
+
+                    <p>Machine to Machine</p>
+                    <form action="/oauth/machines" method="POST">
+                        @csrf
+                        <input type="text" name="name" placeholder="Name" class="my-4"/>
                         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Create</button>
                     </form>
                     <div>

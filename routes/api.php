@@ -19,3 +19,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         'password'
     ]);
 });
+
+Route::middleware('client')->get('/orders', function (Request $request) {
+    return [
+        'orders' => [
+            [
+                'id' => 1,
+                'name' => 'Order 1'
+            ],
+            [
+                'id' => 2,
+                'name' => 'Order 2'
+            ]
+        ]
+    ];
+});

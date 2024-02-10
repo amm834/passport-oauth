@@ -36,4 +36,16 @@ Route::get('/dashboard/clients', function (Request $request) {
     ]);
 })->middleware('auth')->name('dashboard.clients');
 
+Route::post('/oauth/machines', function (Request $request, \Laravel\Passport\ClientRepository $clientRepository) {
+
+    $clientRepository->create(auth()->id(), $request->user()->id, $request->name, '', false, false);
+
+    $client = $clientRepository->createPasswordGrantClient(
+        null, $request->user()->id, $request->name, ''
+    );
+
+
+    return back();
+})->middleware('auth')->name('oauth.machines');
+
 require __DIR__ . '/auth.php';
